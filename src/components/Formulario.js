@@ -19,6 +19,12 @@ const Formulario = ({guardarBusqueda}) => {
         guardarBusqueda(termino);
     };
 
+    const handleKeyPress = (e) => { 
+        if(e.target.value == 'Enter') {
+            this.buscarImagenes();
+        }
+    };
+
     return (
         <form
             onSubmit={buscarImagenes}
@@ -30,6 +36,7 @@ const Formulario = ({guardarBusqueda}) => {
                     className="form-control form-control-lg"
                     placeholder="Busca una imagen, ejemplo fútbol o básquet"                
                     onChange={ e => guardarTermino(e.target.value)}
+                    onKeyPress={handleKeyPress}
                 />
                 </div>
 
